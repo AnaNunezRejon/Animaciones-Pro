@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAN-06: Morphing SVG</title>
+    <link rel="stylesheet" href="banner-06.css">
+</head>
+<body>
+    <div class="morph-container">
+        <svg class="morph-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                </linearGradient>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+                </linearGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="15" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Forma principal que morphing -->
+            <path id="morphShape" fill="url(#grad1)" filter="url(#glow)" />
+            
+            <!-- Forma secundaria -->
+            <path id="morphShape2" fill="url(#grad2)" opacity="0.6" />
+        </svg>
+        
+        <div class="morph-content">
+            <h1>MORPHING</h1>
+            <p>Formas orgánicas en constante transformación</p>
+        </div>
+    </div>
+    
+    <script src="banner-06.js"></script>
+</body>
+</html>

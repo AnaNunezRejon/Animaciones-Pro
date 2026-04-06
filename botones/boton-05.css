@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.diagonal-demo {
+    min-height: 100vh;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    gap: 40px;
+}
+
+.diagonal-demo h1 {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.buttons-showcase {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.diagonal-btn {
+    position: relative;
+    padding: 20px 48px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    background: transparent;
+    border: 2px solid #6366f1;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.5s;
+}
+
+.diagonal-btn .btn-text {
+    position: relative;
+    z-index: 2;
+}
+
+.diagonal-btn .btn-fill {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    transform: skewX(-45deg) translateX(-20%);
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.diagonal-btn:hover .btn-fill {
+    left: 120%;
+}
+
+.diagonal-btn:hover {
+    color: white;
+}
+
+/* Variante reverse */
+.diagonal-btn.reverse .btn-fill {
+    left: 120%;
+}
+
+.diagonal-btn.reverse:hover .btn-fill {
+    left: -100%;
+}

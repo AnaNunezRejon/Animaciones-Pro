@@ -1,0 +1,271 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    perspective: 1000px;
+}
+
+.radial-demo {
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 80px;
+}
+
+/* Contenedor del menú radial */
+.radial-menu-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Botón principal */
+.radial-menu-btn {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radial-menu-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 50px rgba(99, 102, 241, 0.6);
+}
+
+.radial-menu-btn.active {
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+.btn-icon-open,
+.btn-icon-close {
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.btn-icon-close {
+    opacity: 0;
+    transform: rotate(-45deg);
+}
+
+.radial-menu-btn.active .btn-icon-open {
+    opacity: 0;
+    transform: rotate(45deg);
+}
+
+.radial-menu-btn.active .btn-icon-close {
+    opacity: 1;
+    transform: rotate(0);
+}
+
+/* Opciones del menú */
+.radial-option {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    opacity: 0;
+    transform: scale(0) translateZ(-100px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Posicionamiento en círculo cuando está activo */
+.radial-menu-container.active .radial-option {
+    opacity: 1;
+    transform: scale(1) translateZ(0);
+    pointer-events: auto;
+}
+
+/* Calcular posición en círculo (5 opciones = 72 grados entre cada una) */
+.radial-menu-container.active .radial-option[data-index="0"] {
+    transform: translate(
+        calc(cos(270deg) * 120px),
+        calc(sin(270deg) * 120px)
+    );
+    transition-delay: 0.05s;
+}
+
+.radial-menu-container.active .radial-option[data-index="1"] {
+    transform: translate(
+        calc(cos(342deg) * 120px),
+        calc(sin(342deg) * 120px)
+    );
+    transition-delay: 0.1s;
+}
+
+.radial-menu-container.active .radial-option[data-index="2"] {
+    transform: translate(
+        calc(cos(54deg) * 120px),
+        calc(sin(54deg) * 120px)
+    );
+    transition-delay: 0.15s;
+}
+
+.radial-menu-container.active .radial-option[data-index="3"] {
+    transform: translate(
+        calc(cos(126deg) * 120px),
+        calc(sin(126deg) * 120px)
+    );
+    transition-delay: 0.2s;
+}
+
+.radial-menu-container.active .radial-option[data-index="4"] {
+    transform: translate(
+        calc(cos(198deg) * 120px),
+        calc(sin(198deg) * 120px)
+    );
+    transition-delay: 0.25s;
+}
+
+/* Icono y label de opción */
+.opt-icon {
+    font-size: 1.25rem;
+    transition: transform 0.3s;
+}
+
+.radial-option:hover .opt-icon {
+    transform: scale(1.2);
+}
+
+.opt-label {
+    font-size: 0.625rem;
+    opacity: 0;
+    position: absolute;
+    bottom: -20px;
+    white-space: nowrap;
+    transition: all 0.3s;
+    background: rgba(0,0,0,0.8);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.radial-option:hover .opt-label {
+    opacity: 1;
+    bottom: -25px;
+}
+
+/* Hover en opciones */
+.radial-option:hover {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #6366f1;
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Efecto de onda expansiva en el contenedor */
+.radial-menu-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.radial-menu-container.active::before {
+    width: 280px;
+    height: 280px;
+    opacity: 1;
+    border-color: rgba(99, 102, 241, 0.1);
+}
+
+/* Info del demo */
+.demo-info {
+    background: rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.demo-info h3 {
+    margin-bottom: 16px;
+    color: #6366f1;
+}
+
+.demo-info ul {
+    list-style: none;
+}
+
+.demo-info li {
+    padding: 8px 0;
+    color: rgba(255,255,255,0.8);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .radial-menu-container {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .radial-menu-container.active .radial-option[data-index="0"] {
+        transform: translate(0, -100px);
+    }
+    .radial-menu-container.active .radial-option[data-index="1"] {
+        transform: translate(95px, -31px);
+    }
+    .radial-menu-container.active .radial-option[data-index="2"] {
+        transform: translate(59px, 81px);
+    }
+    .radial-menu-container.active .radial-option[data-index="3"] {
+        transform: translate(-59px, 81px);
+    }
+    .radial-menu-container.active .radial-option[data-index="4"] {
+        transform: translate(-95px, -31px);
+    }
+}

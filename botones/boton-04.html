@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOT-04: Botón Magnético</title>
+    <link rel="stylesheet" href="boton-04.css">
+</head>
+<body>
+    <div class="magnetic-demo">
+        <h1>Botón Magnético</h1>
+        <p>El botón sigue suavemente al cursor</p>
+        
+        <div class="buttons-area">
+            <button class="magnetic-btn" data-strength="30">
+                <span>Acércate</span>
+            </button>
+            
+            <button class="magnetic-btn strong" data-strength="60">
+                <span>Fuerte</span>
+            </button>
+            
+            <button class="magnetic-btn subtle" data-strength="15">
+                <span>Sutil</span>
+            </button>
+        </div>
+        
+        <div class="info">
+            <p>Usa <code>data-strength</code> para controlar la intensidad</p>
+        </div>
+    </div>
+    
+    <script src="boton-04.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca de Animaciones Profesionales</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Menú superior de categorías -->
+        <nav class="top-nav">
+            <div class="nav-brand">
+                <span class="logo-icon">✨</span>
+                <span>Animaciones Pro</span>
+            </div>
+            <ul class="nav-categories" id="navCategories">
+                <li><a href="#banners" class="nav-link active" data-cat="banners">🎯 Banners</a></li>
+                <li><a href="#listas" class="nav-link" data-cat="listas">📋 Listas</a></li>
+                <li><a href="#botones" class="nav-link" data-cat="botones">🔘 Botones</a></li>
+                <li><a href="#tarjetas" class="nav-link" data-cat="tarjetas">🃏 Tarjetas</a></li>
+                <li><a href="#textos" class="nav-link" data-cat="textos">🔤 Textos</a></li>
+                <li><a href="#fondos" class="nav-link" data-cat="fondos">🎨 Fondos</a></li>
+            </ul>
+            <button class="btn-toggle" id="reduceMotion">Reducir movimiento</button>
+        </nav>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="categories-container" id="categoriesContainer">
+                <!-- Las categorías se generan dinámicamente -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal de vista previa -->
+    <div class="modal-overlay" id="previewModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <span class="modal-code" id="modalCode">BAN-01</span>
+                    <h2 id="modalTitle">Título de animación</h2>
+                </div>
+                <button class="modal-close" id="modalClose">✕</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="previewFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

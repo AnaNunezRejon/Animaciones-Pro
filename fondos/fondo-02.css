@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.aurora-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0f;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.aurora {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    opacity: 0.6;
+    filter: blur(80px);
+}
+
+.aurora-1 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #00ffff 25%, 
+        #ff00ff 50%, 
+        #00ffff 75%, 
+        transparent 100%);
+    animation: aurora-move-1 15s ease-in-out infinite;
+    top: -20%;
+}
+
+.aurora-2 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #ff00ff 25%, 
+        #00ffff 50%, 
+        #ff00ff 75%, 
+        transparent 100%);
+    animation: aurora-move-2 20s ease-in-out infinite;
+    top: 20%;
+    opacity: 0.4;
+}
+
+.aurora-3 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #00ff88 25%, 
+        #00ffff 50%, 
+        #00ff88 75%, 
+        transparent 100%);
+    animation: aurora-move-3 25s ease-in-out infinite;
+    top: 60%;
+    opacity: 0.3;
+}
+
+@keyframes aurora-move-1 {
+    0%, 100% { transform: translateX(-50%) skewY(-5deg); }
+    50% { transform: translateX(0%) skewY(5deg); }
+}
+
+@keyframes aurora-move-2 {
+    0%, 100% { transform: translateX(0%) skewY(3deg); }
+    50% { transform: translateX(-30%) skewY(-3deg); }
+}
+
+@keyframes aurora-move-3 {
+    0%, 100% { transform: translateX(-30%) skewY(-2deg); }
+    50% { transform: translateX(-60%) skewY(2deg); }
+}
+
+.aurora-content {
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.aurora-content h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 16px;
+    text-shadow: 0 0 40px rgba(0,255,255,0.5);
+}
+
+.aurora-content p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}

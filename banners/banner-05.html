@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAN-05: Split Screen Revelado</title>
+    <link rel="stylesheet" href="banner-05.css">
+</head>
+<body>
+    <div class="split-container" id="splitContainer">
+        <div class="split-left">
+            <div class="split-content">
+                <span class="split-label">DISEÑO</span>
+                <h2>Creatividad</h2>
+            </div>
+        </div>
+        <div class="split-right">
+            <div class="split-content">
+                <span class="split-label">TECNOLOGÍA</span>
+                <h2>Innovación</h2>
+            </div>
+        </div>
+        
+        <!-- Contenido central revelado -->
+        <div class="split-reveal" id="splitReveal">
+            <h1>SPLIT</h1>
+            <p>Dos mundos que se encuentran</p>
+            <button onclick="resetSplit()">Reiniciar animación</button>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <p>Haz clic en cualquier lado para separar las mitades</p>
+    </div>
+    
+    <script src="banner-05.js"></script>
+</body>
+</html>

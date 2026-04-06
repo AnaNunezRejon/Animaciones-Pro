@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.magnetic-demo {
+    min-height: 100vh;
+    background: #0f172a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+}
+
+.magnetic-demo h1 {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+
+    -webkit-text-fill-color: transparent;
+}
+
+.magnetic-demo > p {
+    color: #64748b;
+    margin-bottom: 60px;
+}
+
+.buttons-area {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px;
+}
+
+.magnetic-btn {
+    position: relative;
+    padding: 24px 48px;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+.magnetic-btn strong {
+    background: linear-gradient(135deg, #ec4899, #f43f5e);
+}
+
+.magnetic-btn.subtle {
+    background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.magnetic-btn span {
+    display: inline-block;
+    transition: transform 0.2s ease-out;
+}
+
+.magnetic-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #6366f1, #ec4899, #6366f1);
+    border-radius: 50px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    filter: blur(10px);
+}
+
+.magnetic-btn:hover::before {
+    opacity: 0.5;
+}
+
+.info {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+}
+
+code {
+    background: #6366f1;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: monospace;
+}

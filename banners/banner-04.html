@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAN-04: Lente de Cine</title>
+    <link rel="stylesheet" href="banner-04.css">
+</head>
+<body>
+    <div class="cine-lens-container">
+        <!-- Capa de ruido de película -->
+        <div class="film-grain"></div>
+        
+        <!-- Vignette dinámico -->
+        <div class="vignette-layer"></div>
+        
+        <!-- Contenido -->
+        <div class="cine-content">
+            <span class="cine-label">PRODUCCIÓN</span>
+            <h1 class="cine-title">Cine Digital</h1>
+            <p class="cine-subtitle">La magia del séptimo arte en tu web</p>
+            <button class="cine-cta">Ver Reel</button>
+        </div>
+        
+        <!-- Overlay de scanlines -->
+        <div class="scanlines"></div>
+        
+        <!-- Indicador de grabación -->
+        <div class="rec-indicator">
+            <span class="rec-dot"></span>
+            <span class="rec-text">REC</span>
+        </div>
+    </div>
+    
+    <div class="code-panel">
+        <h2>Código para implementar</h2>
+        <div class="code-tabs">
+            <button class="tab-btn active" onclick="showTab('css')">CSS</button>
+            <button class="tab-btn" onclick="showTab('js')">JS</button>
+            <button class="tab-btn" onclick="showTab('elementor')">Elementor</button>
+        </div>
+        <div class="tab-content active" id="tab-css">
+            <pre id="cssCode"></pre>
+            <button class="copy-btn" onclick="copyCode('cssCode')">Copiar CSS</button>
+        </div>
+        <div class="tab-content" id="tab-js">
+            <pre>// No requiere JavaScript - CSS puro</pre>
+        </div>
+        <div class="tab-content" id="tab-elementor">
+            <ol>
+                <li>Crea una sección con altura mínima 100vh</li>
+                <li>Añade la clase <code>cine-lens-container</code> a la sección</li>
+                <li>Inserta el CSS en <strong>Ajustes del sitio > CSS personalizado</strong></li>
+                <li>Personaliza los colores en las variables CSS</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="banner-04.js"></script>
+</body>
+</html>
