@@ -923,3 +923,62 @@
 
 </body>
 </html>
+
+/* ========== BOTÓN VER SERVICIO ========== */
+
+.btn-barra {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 8px;
+
+}
+
+/* Barra inferior */
+.btn-barra::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 20%; /* Barra corta inicial */
+    height: 3px;
+    background-color: #1a1a1a;
+    transition: width 0.4s ease;
+}
+
+/* Hover - barra se expande */
+.btn-barra:hover::after {
+  width: 100%;
+}
+
+/* ========== PESOS DE FUENTE ========== */
+
+.titulo-estudio .parte-light {
+    font-weight: 300;
+}
+
+.titulo-estudio .parte-bold {
+    font-weight: 700;
+}
+
+/* ========== COLOR ========== */
+
+.titulo-estudio,
+.titulo-estudio span {
+    color: #ffffff !important;
+    font-size: 40px;
+}
+
+.titulo-estudio.titulo-negro,
+.titulo-estudio.titulo-negro span {
+    color: #1a1a1a !important;
+}
+
+.titulo-estudio.titulo-blanco,
+.titulo-estudio.titulo-blanco span {
+    color: #ffffff !important;
+}
+<h2 class="titulo-estudio titulo-negro">
+    <span class="parte-bold">Diseño,</span><br>
+    <span class="parte-light">técnica y</span><br>
+    <span class="parte-light">ejecución</span>
+</h2>
