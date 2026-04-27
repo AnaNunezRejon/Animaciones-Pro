@@ -780,36 +780,36 @@
             });
         }
 
-        // ========== MODAL ==========
-        let currentLandingUrl = '';
+// ========== MODAL ==========
+let currentLandingUrl = '';
 
-        function openModal(titulo, url) {
-            currentLandingUrl = url;
-            document.getElementById('modalTitle').textContent = titulo;
-            document.getElementById('modalIframe').src = url;
-            document.getElementById('modal').classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+function openModal(titulo, url) {
+    currentLandingUrl = url;
+    console.log('Abriendo modal con URL:', url); // Para debug en consola
+    
+    document.getElementById('modalTitle').textContent = titulo;
+    document.getElementById('modalIframe').src = url;
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
 
-        function closeModal() {
-            document.getElementById('modal').classList.remove('active');
-            document.getElementById('modalIframe').src = '';
-            document.body.style.overflow = '';
-        }
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.getElementById('modalIframe').src = '';
+    document.body.style.overflow = '';
+    currentLandingUrl = ''; // Limpiar por seguridad
+}
 
-        function openInNewTab() {
-            if (currentLandingUrl) {
-                window.open(currentLandingUrl, '_blank');
-            }
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-
-        document.getElementById('modal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('modal')) closeModal();
-        });
+function openInNewTab() {
+    console.log('Intentando abrir:', currentLandingUrl); // Para debug
+    
+    if (currentLandingUrl && currentLandingUrl.trim() !== '') {
+        window.open(currentLandingUrl, '_blank', 'noopener,noreferrer');
+    } else {
+        console.error('No hay URL guardada en currentLandingUrl');
+        alert('Error: No se pudo obtener la URL de la landing');
+    }
+}
 
         // ========== CARGAR LANDINGS DESDE JSON ==========
         async function cargarLandings() {
